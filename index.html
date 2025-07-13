@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="light">
+<html lang="de" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -14,23 +14,15 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
     <style>
         :root {
-            --bg-color: #f9fafb;
-            --text-color: #111827;
-            --text-color-light: #6b7280;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-            --accent-color: #7c3aed;
-            --accent-color-hover: #8b5cf6;
-            --favorite-color: #facc15;
-            --reader-font-size: 20px;
-        }
-
-        html[data-theme='dark'] {
             --bg-color: #171717;
             --text-color: #fafafa;
             --text-color-light: #a3a3a3;
             --card-bg: #262626;
             --border-color: #404040;
+            --accent-color: #7c3aed;
+            --accent-color-hover: #8b5cf6;
+            --favorite-color: #facc15;
+            --reader-font-size: 20px;
         }
 
         body {
@@ -673,14 +665,6 @@
                     this.loadAllFeeds();
                     this.currentReaderFontSize = parseFloat(localStorage.getItem('readerFontSize') || 20.0);
 
-                    window.addEventListener('message', (event) => {
-                        if (event.data === 'set-theme-dark') {
-                            document.documentElement.dataset.theme = 'dark';
-                        } else if (event.data === 'set-theme-light') {
-                            document.documentElement.dataset.theme = 'light';
-                        }
-                        // Backup/Restore logic can be added here if needed
-                    });
                 },
                 loadState() {
                     let feeds = JSON.parse(localStorage.getItem('savedRssFeeds'));
